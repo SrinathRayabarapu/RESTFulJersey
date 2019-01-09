@@ -1,4 +1,4 @@
-package com.javatpoint.rest;
+package com.jersey.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -1,6 +1,7 @@
-package com.javatpoint.rest;
+package com.jersey.rest;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.HEAD;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -9,10 +10,23 @@ import javax.ws.rs.core.MediaType;
 public class SuperHello {
 
     @GET
-    @Path("/jersey")
     @Produces(MediaType.TEXT_PLAIN)
     public String sayPlainTextHello() {
         return "Hello Jersey Plain";
+    }
+
+    @GET
+    @Path("/get-jersey")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String sayGETPlainTextHello() {
+        return "Hello GET Jersey Plain";
+    }
+
+    @HEAD
+    @Path("/head-jersey")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String sayHEADPlainTextHello() {
+        return "Hello HEAD Jersey Plain";
     }
 
     // This method is called if XML is request
