@@ -6,15 +6,22 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * demos different HTTP method types
+ * 
+ * @author Srinath.Rayabarapu
+ */
 @Path("/hello")
 public class SuperHello {
 
+    // default GET mapping
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String sayPlainTextHello() {
         return "Hello Jersey Plain";
     }
 
+    // GET mapping with a name
     @GET
     @Path("/get-jersey")
     @Produces(MediaType.TEXT_PLAIN)
@@ -22,25 +29,12 @@ public class SuperHello {
         return "Hello GET Jersey Plain";
     }
 
+    // similar to GET, except that the server replies with a response line and headers, but no entity-body
     @HEAD
     @Path("/head-jersey")
     @Produces(MediaType.TEXT_PLAIN)
     public String sayHEADPlainTextHello() {
         return "Hello HEAD Jersey Plain";
-    }
-
-    // This method is called if XML is request
-    @GET
-    @Produces(MediaType.TEXT_XML)
-    public String sayXMLHello() {
-        return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey" + "</hello>";
-    }
-
-    // This method is called if HTML is request
-    @GET
-    @Produces(MediaType.TEXT_HTML)
-    public String sayHtmlHello() {
-        return "<html> " + "<title>" + "Hello Jersey" + "</title>" + "<body><h1>" + "Hello Jersey HTML" + "</h1></body>" + "</html> ";
     }
 
 }
